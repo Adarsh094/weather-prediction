@@ -1,0 +1,196 @@
+{
+  "city": "Hyderabad",
+  "trained_at": "2026-07-29T09:32:34",
+  "history_start": "2016-07-22",
+  "history_end": "2026-07-22",
+  "n_days": 3653,
+  "best_forecast_model": "Prophet",
+  "best_trained_model": "Prophet",
+  "baseline_won": false,
+  "best_rain_model": "XGBoost",
+  "primary_target": "temperature",
+  "forecast_metrics": {
+    "Prophet": {
+      "MAE": 1.029,
+      "RMSE": 1.319,
+      "R2": 0.85,
+      "Bias": 0.052,
+      "Fit (s)": 0.9
+    },
+    "Climatology (baseline)": {
+      "MAE": 1.152,
+      "RMSE": 1.497,
+      "R2": 0.8069,
+      "Bias": -0.715,
+      "Fit (s)": 0.0
+    },
+    "ARIMA": {
+      "MAE": 1.172,
+      "RMSE": 1.517,
+      "R2": 0.8016,
+      "Bias": -0.714,
+      "Fit (s)": 8.3
+    },
+    "LSTM": {
+      "MAE": 1.556,
+      "RMSE": 2.087,
+      "R2": 0.6245,
+      "Bias": -0.83,
+      "Fit (s)": 29.5
+    },
+    "XGBoost": {
+      "MAE": 1.827,
+      "RMSE": 2.304,
+      "R2": 0.5424,
+      "Bias": 0.254,
+      "Fit (s)": 0.7
+    },
+    "Random Forest": {
+      "MAE": 2.195,
+      "RMSE": 2.701,
+      "R2": 0.371,
+      "Bias": 0.099,
+      "Fit (s)": 0.7
+    }
+  },
+  "rain_metrics": {
+    "Random Forest": {
+      "Accuracy": 0.8986,
+      "Precision": 0.8252,
+      "Recall": 0.8173,
+      "F1": 0.8213,
+      "ROC-AUC": 0.953,
+      "Brier": 0.0756
+    },
+    "XGBoost": {
+      "Accuracy": 0.9068,
+      "Precision": 0.8889,
+      "Recall": 0.7692,
+      "F1": 0.8247,
+      "ROC-AUC": 0.9531,
+      "Brier": 0.0722
+    }
+  },
+  "horizon_reliability": {
+    "1-7": 0.76,
+    "8-30": 0.854,
+    "31-90": 0.805,
+    "91-180": 0.802
+  },
+  "horizon_detail": [
+    {
+      "Horizon": "1-7 days",
+      "Samples": 42,
+      "MAE": 1.51,
+      "RMSE": 2.086,
+      "Reliability": 0.76
+    },
+    {
+      "Horizon": "8-30 days",
+      "Samples": 138,
+      "MAE": 0.915,
+      "RMSE": 1.202,
+      "Reliability": 0.854
+    },
+    {
+      "Horizon": "31-90 days",
+      "Samples": 360,
+      "MAE": 1.224,
+      "RMSE": 1.735,
+      "Reliability": 0.805
+    },
+    {
+      "Horizon": "91-180 days",
+      "Samples": 540,
+      "MAE": 1.246,
+      "RMSE": 1.565,
+      "Reliability": 0.802
+    }
+  ],
+  "backtest_origins": 6,
+  "skill_vs_climatology_pct": 11.89,
+  "rain_feature_importance": {
+    "temperature": 0.03595627471804619,
+    "humidity": 0.20680929720401764,
+    "pressure": 0.02889675460755825,
+    "wind_speed": 0.02693902514874935,
+    "cloud_cover": 0.04039201885461807,
+    "dew_point": 0.526093602180481,
+    "sin_1": 0.050612349063158035,
+    "cos_1": 0.041475046426057816,
+    "month": 0.04282565787434578
+  },
+  "rain_rate_pct": 30.55,
+  "calibration": [
+    {
+      "bucket": "(-0.001, 0.1]",
+      "Days": "233",
+      "Predicted %": "1.3",
+      "Actual %": "5.6",
+      "Gap": "4.3"
+    },
+    {
+      "bucket": "(0.1, 0.2]",
+      "Days": "23",
+      "Predicted %": "14.2",
+      "Actual %": "21.7",
+      "Gap": "7.5"
+    },
+    {
+      "bucket": "(0.2, 0.3]",
+      "Days": "7",
+      "Predicted %": "25.1",
+      "Actual %": "28.6",
+      "Gap": "3.5"
+    },
+    {
+      "bucket": "(0.3, 0.4]",
+      "Days": "6",
+      "Predicted %": "35.0",
+      "Actual %": "33.3",
+      "Gap": "-1.7"
+    },
+    {
+      "bucket": "(0.4, 0.5]",
+      "Days": "6",
+      "Predicted %": "46.7",
+      "Actual %": "33.3",
+      "Gap": "-13.4"
+    },
+    {
+      "bucket": "(0.5, 0.6]",
+      "Days": "3",
+      "Predicted %": "55.0",
+      "Actual %": "33.3",
+      "Gap": "-21.7"
+    },
+    {
+      "bucket": "(0.6, 0.7]",
+      "Days": "8",
+      "Predicted %": "66.2",
+      "Actual %": "25.0",
+      "Gap": "-41.2"
+    },
+    {
+      "bucket": "(0.7, 0.8]",
+      "Days": "10",
+      "Predicted %": "75.0",
+      "Actual %": "90.0",
+      "Gap": "15.0"
+    },
+    {
+      "bucket": "(0.8, 0.9]",
+      "Days": "10",
+      "Predicted %": "86.7",
+      "Actual %": "100.0",
+      "Gap": "13.3"
+    },
+    {
+      "bucket": "(0.9, 1.0]",
+      "Days": "59",
+      "Predicted %": "97.7",
+      "Actual %": "98.3",
+      "Gap": "0.6"
+    }
+  ]
+}

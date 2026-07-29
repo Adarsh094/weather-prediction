@@ -1,0 +1,79 @@
+{
+  "trained_at": "2026-07-29T09:32:34",
+  "cities": [
+    "Delhi",
+    "Mumbai",
+    "Bengaluru",
+    "Chennai",
+    "Kolkata",
+    "Hyderabad"
+  ],
+  "primary_target": "temperature",
+  "average_forecast_metrics": {
+    "Prophet": {
+      "MAE": 1.219,
+      "RMSE": 1.5628,
+      "R2": 0.7859
+    },
+    "Climatology (baseline)": {
+      "MAE": 1.2423,
+      "RMSE": 1.609,
+      "R2": 0.7668
+    },
+    "ARIMA": {
+      "MAE": 1.2525,
+      "RMSE": 1.6117,
+      "R2": 0.7661
+    },
+    "XGBoost": {
+      "MAE": 1.4635,
+      "RMSE": 1.8852,
+      "R2": 0.6678
+    },
+    "Random Forest": {
+      "MAE": 1.5407,
+      "RMSE": 1.9335,
+      "R2": 0.6353
+    },
+    "LSTM": {
+      "MAE": 1.6482,
+      "RMSE": 2.118,
+      "R2": 0.6012
+    }
+  },
+  "average_rain_metrics": {
+    "Random Forest": {
+      "Accuracy": 0.8717,
+      "Precision": 0.8338,
+      "Recall": 0.8038,
+      "F1": 0.8166,
+      "ROC-AUC": 0.9504,
+      "Brier": 0.0846
+    },
+    "XGBoost": {
+      "Accuracy": 0.8698,
+      "Precision": 0.8788,
+      "Recall": 0.7314,
+      "F1": 0.7973,
+      "ROC-AUC": 0.9481,
+      "Brier": 0.0896
+    }
+  },
+  "winner_per_city": {
+    "Delhi": "Prophet",
+    "Mumbai": "Prophet",
+    "Bengaluru": "ARIMA",
+    "Chennai": "Prophet",
+    "Kolkata": "Climatology (baseline)",
+    "Hyderabad": "Prophet"
+  },
+  "rain_winner_per_city": {
+    "Delhi": "Random Forest",
+    "Mumbai": "Random Forest",
+    "Bengaluru": "XGBoost",
+    "Chennai": "Random Forest",
+    "Kolkata": "Random Forest",
+    "Hyderabad": "XGBoost"
+  },
+  "training_seconds": 413.1
+}

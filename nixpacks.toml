@@ -1,0 +1,28 @@
+# Nixpacks build configuration - this is what Railway reads to build the image.
+#
+# Only the INSTALL phase is overridden. Nixpacks is left to detect Python and
+# build the virtualenv itself (it reads `.python-version`, which pins 3.12).
+# Overriding the setup phase as well is a common way to break the build, so we
+# change the minimum necessary.
+#
+# Why override install at all?
+#   Nixpacks would otherwise install requirements.txt, which includes PyTorch
+#   (~800 MB) and Jupyter. The running app needs neither - no city deploys an
+#   LSTM, and `utils/models.py` degrades gracefully when torch is absent.
+#   requirements-deploy.txt is the slim, version-pinned runtime set.
+
+[phases.install]
+cmds = [
+  "python -m venv --copies /opt/venv",
+  ". /opt/venv/bin/activate && pip install --upgrade pip",
+  ". /opt/venv/bin/activate && pip install -r requirements-deploy.txt",
+]
+
+[start]
+# Railway injects $PORT. Streamlit must bind 0.0.0.0, not localhost, or the
+# platform's health check can never reach it.
+#
+# `python -m streamlit` rather than plain `streamlit`: it works even when the
+# console-script directory is not on PATH, which is a common cause of a build
+# that succeeds and then crash-loops on start.
+cmd = "python -m streamlit run app.py --server.port $PORT --server.address 0.0.0.0"

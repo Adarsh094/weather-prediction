@@ -1,0 +1,30 @@
+# Runtime dependencies for the deployed app (Railway / any cloud host).
+#
+# This file is deliberately DIFFERENT from requirements.txt:
+#
+#   * Versions are PINNED EXACTLY. The saved .pkl models were created by these
+#     library versions. scikit-learn and Prophet pickles are version-sensitive,
+#     so a different version on the server can fail to load them or silently
+#     change behaviour.
+#
+#   * torch is EXCLUDED. It is only needed to TRAIN the LSTM. No city deploys
+#     an LSTM (Prophet, ARIMA and Climatology won), and `utils/models.py`
+#     degrades gracefully when torch is absent. Including it would add roughly
+#     800 MB to the image for no runtime benefit.
+#
+#   * jupyter/notebook are EXCLUDED - a server does not run notebooks.
+#
+#   * matplotlib/seaborn are EXCLUDED - the app charts with Plotly only.
+#     They are needed for the notebook, which is not deployed.
+#
+# Use requirements.txt for local development and training.
+
+pandas==3.0.5
+numpy==2.5.1
+scikit-learn==1.9.0
+xgboost==3.3.0
+prophet==1.3.0
+statsmodels==0.14.6
+joblib==1.5.3
+plotly==6.9.0
+streamlit==1.60.0

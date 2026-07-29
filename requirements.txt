@@ -1,0 +1,37 @@
+# Smart Weather Prediction System - Python dependencies
+#
+# Install everything with:
+#     pip install -r requirements.txt
+#
+# Tested on Python 3.11 - 3.14 (Windows 11).
+
+# ---- Core data handling ----------------------------------------------------
+pandas>=2.0.0            # loading, cleaning and reshaping the weather data
+numpy>=1.24.0            # numerical operations
+
+# ---- Machine learning ------------------------------------------------------
+scikit-learn>=1.3.0      # Random Forest, metrics, train/test utilities
+xgboost>=2.0.0           # gradient boosting forecaster and rain classifier
+joblib>=1.3.0            # saving and loading the trained models
+
+# ---- Time-series forecasting ----------------------------------------------
+prophet>=1.1.5           # trend + yearly-seasonality forecaster
+statsmodels>=0.14.0      # SARIMAX (the ARIMA-family model)
+
+# ---- Deep learning (the LSTM) ---------------------------------------------
+# NOTE: TensorFlow publishes no build for Python 3.13+, so the LSTM in this
+# project is written in PyTorch. Install the small CPU-only build with:
+#     pip install torch --index-url https://download.pytorch.org/whl/cpu
+torch>=2.0.0
+
+# ---- Visualisation ---------------------------------------------------------
+plotly>=5.18.0           # every interactive chart in the app
+matplotlib>=3.7.0        # static charts in the notebook
+seaborn>=0.12.0          # statistical plots in the notebook
+
+# ---- Web application -------------------------------------------------------
+streamlit>=1.30.0        # the user interface
+
+# ---- Notebook (only needed to open notebook/Smart_Weather_Prediction.ipynb) -
+jupyter>=1.0.0
+notebook>=7.0.0
