@@ -518,3 +518,10 @@ st.caption(
     "reanalysis · live forecast: OpenWeatherMap / Open-Meteo · "
     "built with Python, scikit-learn, Prophet, PyTorch and Streamlit."
 )
+
+# Vercel entrypoint fallback compatibility export
+try:
+    from api.index import app
+except Exception:
+    pass
+

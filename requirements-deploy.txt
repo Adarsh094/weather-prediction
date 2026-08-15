@@ -28,3 +28,5 @@ statsmodels==0.14.6
 joblib==1.5.3
 plotly==6.9.0
 streamlit==1.60.0
+flask==3.0.3
+

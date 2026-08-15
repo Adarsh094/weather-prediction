@@ -31,6 +31,8 @@ seaborn>=0.12.0          # statistical plots in the notebook
 
 # ---- Web application -------------------------------------------------------
 streamlit>=1.30.0        # the user interface
+flask>=3.0.0            # Vercel serverless entrypoint
+
 
 # ---- Notebook (only needed to open notebook/Smart_Weather_Prediction.ipynb) -
 jupyter>=1.0.0
